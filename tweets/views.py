@@ -10,7 +10,7 @@ def tweet_detail_view(request, pk):
     data = {}
     if tweet_obj:
         data['message'] = "Success"
-        data['text'] = tweet_obj.content
+        data['content'] = tweet_obj.content
         data['pk'] = tweet_obj.pk
 
     return JsonResponse(data)
