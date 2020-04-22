@@ -19,5 +19,5 @@ from tweets.views import tweet_detail_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', tweet_detail_view, name='tweets'),
+    path('tweet/<int:pk>/', tweet_detail_view, name='tweets'),
 ]
