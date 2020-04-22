@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}One Tweet{% endblock title %}
+    </title>
+
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta charset="UTF-8">
+    <meta content="{% static 'img/logo-128.png' %}" property="og:image"/>
+    <meta content="{% block head_title %}Sticky Notes{% endblock head_title %}" property="og:title"/>
+    <meta content="Create colorful todo notes for free" property="og:description"/>
+    <meta content="265" property="og:image:width">
+    <meta content="265" property="og:image:height">
+    <meta content="Sticky Notes" property="og:site_name">
+    <link href="{% static 'img/favicon.ico' %}" rel="icon" type="image/png">
+
+
+    <!-- Stylesheets -->
+    <link href="{% static 'css/all.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="container">
+
+{% block content %}
+    <!-- content -->
+
+{% endblock %}
+</div>
+
+
+<!-- Javascript files -->
+<script charset="utf-8" src="{% static 'js/jquery.min.js' %}"></script>
+<script charset="utf-8" src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

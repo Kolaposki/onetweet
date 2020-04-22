@@ -3,7 +3,9 @@ from .models import Tweet
 from django.http import HttpResponse, Http404, HttpRequest, JsonResponse
 
 
-# Create your views here.
+def home(request):
+    return render(request, 'pages/home.html')
+
 
 def tweet_detail_view(request, pk):
     tweet_obj = get_object_or_404(Tweet, pk=pk)
