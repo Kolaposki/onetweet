@@ -2,3 +2,16 @@ body {
     background-color: #EFEFEF;
     direction: ltr;
 }
+
+.like {
+    background-color: transparent;
+    padding: 0 !important;
+    border: 0;
+    color: tomato;
+
+}
+
+.card {
+    margin-bottom: 5px !important;
+    width: 18rem !important;
+}

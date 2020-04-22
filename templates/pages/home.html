@@ -2,8 +2,39 @@
 
 
 {% block content %}
-    <!-- content -->
-    <div class="alert alert-info text-center">
-        <h2>Welcome to One Tweet</h2>
+<!-- content -->
+<div class="alert alert-info text-center">
+    <h2>Welcome to One Tweet</h2>
+</div>
+
+
+<div class="row mb-4 text-center">
+    <div class="col-md-4 mx-auto col-10">
+
+        <div class="card info">
+            <div class="card-body p-2">
+                <form action="/" class="form form-group" method="post">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="/">
+                    <textarea autocomplete="off" class="form-control" name="content" placeholder="Enter tweet..."
+                              required></textarea>
+                    <button class="btn btn-success mt-2" type="submit">Save</button>
+                </form>
+            </div>
+        </div>
     </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <button class="like"><i class="fa fa-heart"></i></button>
+            <span class="ml-2">22</span>
+        </div>
+    </div>
+
+</div>
+
 {% endblock %}
