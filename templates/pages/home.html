@@ -18,22 +18,27 @@
                     <input name="next" type="hidden" value="/">
                     <textarea autocomplete="off" class="form-control" name="content" placeholder="Enter tweet..."
                               required></textarea>
-                    <button class="btn btn-success mt-2" type="submit">Save</button>
+                    <button class="btn btn-primary mt-2" type="submit">Tweet</button>
+
                 </form>
+
             </div>
         </div>
+
     </div>
 </div>
 
 <div class="container">
-
+    {% for tweet in tweets %}
     <div class="card">
         <div class="card-body">
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text">{{ tweet.content}}</p>
             <button class="like"><i class="fa fa-heart"></i></button>
-            <span class="ml-2">22</span>
+            <span class="ml-2">{{likes}}</span>
         </div>
     </div>
+
+    {% endfor %}
 
 </div>
 

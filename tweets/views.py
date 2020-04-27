@@ -2,12 +2,21 @@ from django.shortcuts import get_object_or_404, render
 from .models import Tweet
 from django.http import HttpResponse, Http404, HttpRequest, JsonResponse
 from .forms import TweetForm
+from random import randint
 
 
 # current : 2:37:11 - Handling form errors
 
 def home(request):
-    return render(request, 'pages/home.html')
+    tweets = Tweet.objects.all().order_by('-pk')
+    form = TweetForm(request.POST or None)
+    likes = randint(1, 20)
+
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.save()
+        form = TweetForm
+    return render(request, 'pages/home.html', {"tweets": tweets, 'form': form, 'likes': likes})
 
 
 def tweete_create_view(request):
@@ -18,7 +27,7 @@ def tweete_create_view(request):
         obj.save()
         form = TweetForm
 
-    return render(request, 'components/form.html', context={'form': form})
+    return render(request, 'pages/home.html', context={'form': form})
 
 
 def tweet_list_view(request):
