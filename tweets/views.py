@@ -12,10 +12,17 @@ def home(request):
     form = TweetForm(request.POST or None)
     likes = randint(1, 20)
 
-    if form.is_valid():
-        obj = form.save(commit=False)
-        obj.save()
-        form = TweetForm
+    if request.is_ajax():
+        print("AJAXAJAXAJAXAJAXAJAXAJAX")
+        if request.method == 'POST':
+            print("POST POST")
+            if form.is_valid():
+                obj = form.save(commit=False)
+                obj.save()
+                content = request.POST.get('content')
+                data = {"tweet": obj.content, "pk": obj.pk, "content": content}
+                return JsonResponse(data)
+
     return render(request, 'pages/home.html', {"tweets": tweets, 'form': form, 'likes': likes})
 
 

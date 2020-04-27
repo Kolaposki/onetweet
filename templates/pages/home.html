@@ -13,12 +13,12 @@
 
         <div class="card info">
             <div class="card-body p-2">
-                <form action="/" class="form form-group" method="post">
+                <form action="/" class="form form-group" id="tweetForm" method="post">
                     {% csrf_token %}
                     <input name="next" type="hidden" value="/">
                     <textarea autocomplete="off" class="form-control" name="content" placeholder="Enter tweet..."
                               required></textarea>
-                    <button class="btn btn-primary mt-2" type="submit">Tweet</button>
+                    <button class="btn btn-primary mt-2" id="tweet_btn" type="submit">Tweet</button>
 
                 </form>
 
@@ -28,7 +28,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container all-tweets">
     {% for tweet in tweets %}
     <div class="card">
         <div class="card-body">
