@@ -13,6 +13,9 @@ class Tweet(models.Model):
         def __str__(self):
             return f"Tweet id {self.pk} and tweet: {self.content}"
 
+    def rand_likes(self):
+        return str(randint(0, 100))
+
     def serialize(self):
         return {
             "pk": self.pk,

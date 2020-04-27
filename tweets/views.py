@@ -20,7 +20,7 @@ def home(request):
                 obj = form.save(commit=False)
                 obj.save()
                 # content = request.POST.get('content')
-                data = {"tweet": obj.content, "pk": obj.pk, "likes": likes}
+                data = {"message": "Tweet created!", "tweet": obj.content, "pk": obj.pk, "likes": obj.rand_likes()}
                 return JsonResponse(data)
 
     return render(request, 'pages/home.html', {"tweets": tweets, 'form': form, 'likes': likes})

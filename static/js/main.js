@@ -36,12 +36,12 @@ $(document).on("click", "#tweet_btn", function (event) {
         let $likes = data.likes;
          $(".all-tweets").prepend(newTweet($tweet, $likes));
 
-        console.log("Tweet: ",data.tweet);
-        console.log("Pk: ",data.pk);
+        console.log(data.message);
+        console.log("Tweet: ",$tweet);
     }
 
     function handleError(ThrowError) {
-        console.log("An error occurred while trying to create the note");
+        console.log("An error occurred while trying to create the tweet");
         console.log(ThrowError);
     }
 });
