@@ -12,12 +12,29 @@ $(document).on("click", "#tweet_btn", function (event) {
         error: handleError,
     });
 
+    function newTweet($tweet, $likes){
+        console.log("New tweet is called");
+        return ""+
+        "<div class='card'>"+
+            "<div class='card-body'>"+
+                "<p class='card-text'>"+ $tweet +"</p>"+
+                "<button class='like'><i class='fa fa-heart'></i></button>"+
+                "<span class='ml-2'>"+ $likes +"</span>"+
+            "</div>"+
+        "</div>"
+    }
+
     function handleSuccess(data) {
 
         if (data) {
-            $(".all-tweets").load(" .all-tweets > *");
+            // $(".all-tweets").load(" .all-tweets > *");
             $noteForm[0].reset();
         }
+
+
+        let $tweet = data.tweet;
+        let $likes = data.likes;
+         $(".all-tweets").prepend(newTweet($tweet, $likes));
 
         console.log("Tweet: ",data.tweet);
         console.log("Content: ",data.content);
