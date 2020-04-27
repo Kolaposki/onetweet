@@ -37,7 +37,6 @@ $(document).on("click", "#tweet_btn", function (event) {
          $(".all-tweets").prepend(newTweet($tweet, $likes));
 
         console.log("Tweet: ",data.tweet);
-        console.log("Content: ",data.content);
         console.log("Pk: ",data.pk);
     }
 

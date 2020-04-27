@@ -19,8 +19,8 @@ def home(request):
             if form.is_valid():
                 obj = form.save(commit=False)
                 obj.save()
-                content = request.POST.get('content')
-                data = {"tweet": obj.content, "pk": obj.pk, "content": content, "likes": likes}
+                # content = request.POST.get('content')
+                data = {"tweet": obj.content, "pk": obj.pk, "likes": likes}
                 return JsonResponse(data)
 
     return render(request, 'pages/home.html', {"tweets": tweets, 'form': form, 'likes': likes})
