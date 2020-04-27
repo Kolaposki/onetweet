@@ -13,7 +13,7 @@ $(document).on("click", "#tweet_btn", function (event) {
     });
 
     function newTweet($tweet, $likes){
-        console.log("New tweet is called");
+        //console.log("New tweet is called");
         return ""+
         "<div class='card'>"+
             "<div class='card-body'>"+

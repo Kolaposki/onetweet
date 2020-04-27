@@ -10,7 +10,6 @@ from random import randint
 def home(request):
     tweets = Tweet.objects.all().order_by('-pk')
     form = TweetForm(request.POST or None)
-    likes = randint(1, 20)
 
     if request.is_ajax():
         print("AJAXAJAXAJAXAJAXAJAXAJAX")
@@ -21,9 +20,12 @@ def home(request):
                 obj.save()
                 # content = request.POST.get('content')
                 data = {"message": "Tweet created!", "tweet": obj.content, "pk": obj.pk, "likes": obj.rand_likes()}
-                return JsonResponse(data)
+                return JsonResponse(data, status=201)
+            else:
+                data = {"message": "Error occured while submitting form, check if its valid!"}
+                return JsonResponse(data, status=400)
 
-    return render(request, 'pages/home.html', {"tweets": tweets, 'form': form, 'likes': likes})
+    return render(request, 'pages/home.html', {"tweets": tweets, 'form': form})
 
 
 def tweete_create_view(request):
