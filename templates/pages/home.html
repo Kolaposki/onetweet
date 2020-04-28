@@ -17,7 +17,7 @@
                     {% csrf_token %}
                     <input name="next" type="hidden" value="/">
                     <textarea autocomplete="off" class="form-control" name="content" placeholder="Enter tweet..."
-                              required></textarea>
+                              required="required" maxlength="280"></textarea>
                     <button class="btn btn-primary mt-2" id="tweet_btn" type="submit">Tweet</button>
 
                 </form>
